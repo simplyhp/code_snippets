@@ -9,3 +9,16 @@ represented by the arrows.
   ContourPlot3D[
    u*x^2 + v*y^2 + z^2 == w, {x, -3, 3}, {y, -3, 3}, {z, -3, 3}, 
    Boxed -> False, Axes -> False]
+
+S2[u_, v_] := 
+ S2[u, v] = 
+  VectorPlot3D[{u*2 x, v*2 y, 2 z}, {x, -3, 3}, {y, -3, 3}, {z, -3, 
+    3}, Boxed -> False, Axes -> False]
+    
+Manipulate[
+ Show[{S1[u, v, w], S2[u, v]}, ImageSize -> {400, 400}],
+ {u, -3, 3, Appearance -> "Labeled"},
+ {v, -3, 3, Appearance -> "Labeled"},
+ {w, 0, 2, Appearance -> "Labeled"},
+ (*the evaluation will not time out*)SynchronousUpdating -> False,
+ SaveDefinitions -> True]    
